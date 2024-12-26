@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meu App de Motivação</title>
+
+  <!-- Manifest para PWA -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Font Awesome (para ícones, caso necessário no futuro) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p7Y+En35fVgOExn5uY0J+qHn+ztO2a3P0qV5T9rM0sFF34lgKq1X4X7UggvJxV7hG9UPa6TcMfKk1t6KZ8BGmg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Biblioteca externa (html2canvas) para gerar imagem do card -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+
+  <!-- JS Principal -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Camada de Estrelas Cadentes -->
+  <div class="stars"></div>
+  <div class="shooting-stars"></div>
+
+  <!-- Cabeçalho (Header) -->
+  <header>
+    <nav>
+      <div class="logo">
+        <!-- Substitua pelo seu logo -->
+        <img src="assets/logo.png" alt="Logo" class="logo-img" />
+      </div>
+
+      <!-- Título do App -->
+      <span class="app-title">Meu App de Motivação</span>
+
+      <!-- Frase/Slogan -->
+      <p class="tagline">Receba mensagens de motivação todos os dias!</p>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <section id="cardSection">
+      <div class="motivation-card glass" id="motivationCard">
+        <h2 id="dailyQuote"></h2>
+        <p id="explanation"></p>
+      </div>
+
+      <div class="button-group">
+        <button id="shareBtn" class="primary-btn">Compartilhar</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>Feito com ♥ para motivar seu dia</p>
+  </footer>
+</body>
+</html>
