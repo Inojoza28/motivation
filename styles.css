@@ -9,17 +9,17 @@
   --font-family: 'Poppins', sans-serif;
 
   /* Fundo principal e gradientes */
-  --bg-gradient-start: #e0eafc;
-  --bg-gradient-end: #cfdef3;
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-end: #f0f0f0;
 
   /* Cores de texto e destaques */
-  --text-color: #333;
+  --text-color: #333333;
   --primary-color: #4a90e2; 
 
   /* Glass */
   --glass-bg: rgba(255, 255, 255, 0.6);
   --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-text-color: #333;
+  --glass-text-color: #333333;
 
   /* Botões */
   --button-bg: #4a90e2;
@@ -27,7 +27,7 @@
 
   /* Header e Footer */
   --header-footer-bg: rgba(255, 255, 255, 0.8);
-  --header-footer-text: #444;
+  --header-footer-text: #444444;
 
   /* Sombreamento suave */
   --box-shadow: 0 8px 32px rgba(0,0,0,0.1);
@@ -38,20 +38,20 @@
 
 /* Tema Escuro */
 body.dark-mode {
-  --bg-gradient-start: #0f2027;
-  --bg-gradient-end: #203a43;
+  --bg-gradient-start: #0a1d2c;
+  --bg-gradient-end: #1b263b;
 
-  --text-color: #f5f5f5;
+  --text-color: #f0f0f0;
   --primary-color: #58a6ff;
 
-  --glass-bg: rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(0, 0, 0, 0.7);
   --glass-border: rgba(255, 255, 255, 0.2);
   --glass-text-color: #f5f5f5;
 
   --button-bg: #58a6ff;
   --button-text: #fff;
 
-  --header-footer-bg: rgba(0, 0, 0, 0.7);
+  --header-footer-bg: rgba(0, 0, 0, 0.9);
   --header-footer-text: #ddd;
 
   --box-shadow: 0 4px 20px rgba(0,0,0,0.5);
@@ -76,8 +76,8 @@ body {
   display: flex;
   flex-direction: column;
   transition: background 0.6s ease, color 0.6s ease;
-  position: relative; /* Para as camadas de estrelas */
-  overflow: hidden; /* Evita scroll devido às animações */
+  position: relative; /* Para possíveis futuras camadas */
+  overflow: hidden; /* Evita scroll devido a possíveis futuras animações */
 }
 
 /* ======== */
@@ -115,14 +115,18 @@ header nav {
   object-fit: contain;
 }
 
-/* Título do App */
+/* Título do App e Slogan */
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
 .app-title {
   font-weight: 600;
   font-size: 1.5rem;
   color: var(--header-footer-text);
 }
 
-/* Slogan/Tagline */
 .tagline {
   font-size: 1rem;
   color: var(--header-footer-text);
@@ -144,7 +148,7 @@ main {
   justify-content: center;
   align-items: center;
   padding: 2rem 1rem;
-  position: relative; /* Para o conteúdo estar acima das estrelas */
+  position: relative; /* Para o conteúdo estar acima de possíveis futuras camadas */
   z-index: 1;
 }
 
@@ -247,81 +251,6 @@ footer p {
   font-size: 0.9rem;
 }
 
-/* =============== */
-/* ANIMAÇÕES DE FUNDO */
-/* =============== */
-
-/* Camada de Estrelas Estáticas */
-.stars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  background-image: radial-gradient(white 1px, transparent 1px);
-  background-size: 2px 2px;
-  z-index: 0;
-  opacity: 0.3;
-}
-
-/* Camada de Estrelas Cadentes */
-.shooting-stars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Permite clicar nos elementos abaixo */
-  z-index: 0;
-  overflow: hidden;
-}
-
-.shooting-star {
-  position: absolute;
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
-  opacity: 0;
-  animation: shooting 5s linear infinite;
-}
-
-@keyframes shooting {
-  0% {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(500px) translateY(300px);
-  }
-}
-
-/* Gerar várias estrelas cadentes com diferentes delays e direções */
-.shooting-stars::before, .shooting-stars::after {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
-  opacity: 0;
-  animation: shooting 7s linear infinite;
-}
-
-.shooting-stars::before {
-  top: 20%;
-  left: -100px;
-  animation-delay: 0s;
-  transform: rotate(45deg); /* Movimento para a direita */
-}
-
-.shooting-stars::after {
-  top: 60%;
-  left: -100px;
-  animation-delay: 3s;
-  transform: rotate(-45deg); /* Movimento para a esquerda */
-}
-
 /* ======= */
 /* KEYFRAME EFFECT */
 /* ======= */
@@ -347,9 +276,9 @@ footer p {
   }
 }
 
-/* ====== */
+/* ============== */
 /* RESPONSIVIDADE */
-/* ====== */
+/* ============== */
 
 /* Responsividade para telas abaixo de 1024px */
 @media (max-width: 1024px) {
@@ -399,10 +328,15 @@ footer p {
     height: 32px;
   }
 
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   .app-title {
     font-size: 1.2rem;
-    text-align: center;
-    margin: 0; /* Remove margem automática */
+    margin: 0.5rem 0;
   }
 
   /* Slogan/Tagline */
@@ -430,12 +364,6 @@ footer p {
   .button-group {
     flex-direction: column;
     gap: 0.75rem;
-  }
-
-  /* Animação das estrelas cadentes */
-  .shooting-stars::before, .shooting-stars::after {
-    width: 80px;
-    height: 1.5px;
   }
 }
 
@@ -474,11 +402,5 @@ footer p {
   .button-group {
     flex-direction: column;
     gap: 0.75rem;
-  }
-
-  /* Animação das estrelas cadentes */
-  .shooting-stars::before, .shooting-stars::after {
-    width: 60px;
-    height: 1.2px;
   }
 }

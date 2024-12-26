@@ -318,30 +318,6 @@ function setThemeBasedOnTime() {
   }
 }
 
-// ====== Animação de Estrelas Cadentes ======
-function createShootingStars() {
-  const shootingStarsContainer = document.querySelector('.shooting-stars');
-  const numberOfShootingStars = 10; // Aumentado para mais estrelas cadentes
-
-  for (let i = 0; i < numberOfShootingStars; i++) {
-    const star = document.createElement('div');
-    star.classList.add('shooting-star');
-
-    // Posicionamento aleatório
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.left = `${Math.random() * 100}%`;
-
-    // Direção aleatória: para a direita ou esquerda
-    const direction = Math.random() > 0.5 ? 'right' : 'left';
-    star.classList.add(direction);
-
-    // Delay aleatório para animação
-    star.style.animationDelay = `${Math.random() * 5}s`;
-
-    shootingStarsContainer.appendChild(star);
-  }
-}
-
 // ====== Service Worker para PWA ======
 function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
@@ -361,10 +337,21 @@ function registerServiceWorker() {
 // ====== Inicialização ======
 document.addEventListener("DOMContentLoaded", () => {
   setThemeBasedOnTime();
-  createShootingStars();
   showDailyMessage();
   registerServiceWorker();
 
   shareBtn.addEventListener("click", shareCard);
 });
 
+
+// function setThemeBasedOnTime() {
+//     // Força o tema escuro para teste
+//     const isDark = true;
+  
+//     if (isDark) {
+//       document.body.classList.add("light-mode");
+//     } else {
+//       document.body.classList.remove("dark-mode");
+//     }
+//   }
+  
