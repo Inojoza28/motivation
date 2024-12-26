@@ -1,67 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-/* ==================== */
-/* TEMAS (Claro/Escuro) */
-/* ==================== */
-
-/* Tema Claro */
-:root {
-  --font-family: 'Poppins', sans-serif;
-
-  /* Fundo principal e gradientes */
-  --bg-gradient-start: #ffffff;
-  --bg-gradient-end: #f0f0f0;
-
-  /* Cores de texto e destaques */
-  --text-color: #333333;
-  --primary-color: #4a90e2; 
-
-  /* Glass */
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-text-color: #333333;
-
-  /* Botões */
-  --button-bg: #4a90e2;
-  --button-text: #fff;
-
-  /* Header e Footer */
-  --header-footer-bg: rgba(255, 255, 255, 0.8);
-  --header-footer-text: #444444;
-
-  /* Sombreamento suave */
-  --box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-
-  /* Cores auxiliares (opcional) */
-  --highlight-color: #e2f1ff;
-}
-
-/* Tema Escuro */
-body.dark-mode {
-  --bg-gradient-start: #0a1d2c;
-  --bg-gradient-end: #1b263b;
-
-  --text-color: #f0f0f0;
-  --primary-color: #58a6ff;
-
-  --glass-bg: rgba(0, 0, 0, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-text-color: #f5f5f5;
-
-  --button-bg: #58a6ff;
-  --button-text: #fff;
-
-  --header-footer-bg: rgba(0, 0, 0, 0.9);
-  --header-footer-text: #ddd;
-
-  --box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-
-  --highlight-color: #073f66;
-}
-
-/* ========== */
-/* RESET/BODY */
-/* ========== */
+/* Reset padrão */
 * {
   margin: 0;
   padding: 0;
@@ -69,40 +6,48 @@ body.dark-mode {
 }
 
 body {
-  font-family: var(--font-family);
-  color: var(--text-color);
-  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  font-family: 'Nunito', sans-serif; /* Fonte suave e profissional */
+  background: linear-gradient(120deg, #f1f5f9, #d8e3e7); /* Fundo neutro e inspirador */
+  color: #2a2d34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  transition: background 0.6s ease, color 0.6s ease;
-  position: relative; /* Para possíveis futuras camadas */
-  overflow: hidden; /* Evita scroll devido a possíveis futuras animações */
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: hidden;
 }
 
-/* ======== */
-/* HEADER   */
-/* ======== */
+/* Animação de entrada suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cabeçalho */
 header {
   width: 100%;
-  padding: 0.5rem 1rem;
-  background-color: var(--header-footer-bg);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #4b6478, #7298a5); /* Tons azulados suaves */
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 10;
+  animation: fadeIn 0.8s ease-out;
 }
 
-header nav {
+nav {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Logo à esquerda, título e slogan à direita */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
+  justify-content: space-between;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -110,194 +55,149 @@ header nav {
 }
 
 .logo-img {
-  width: 50px;
   height: 50px;
-  object-fit: contain;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-/* Título do App e Slogan */
 .header-content {
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .app-title {
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: var(--header-footer-text);
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: #f1f5f9; /* Texto claro */
 }
 
 .tagline {
   font-size: 1rem;
-  color: var(--header-footer-text);
-  margin-left: 1rem;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  margin-top: 0.3rem;
+  opacity: 0.9;
+  font-style: italic;
+  color: #e8eff3; /* Subtle secondary color */
 }
 
-.tagline:hover {
-  opacity: 1;
-}
-
-/* ======== */
-/* MAIN     */
-/* ======== */
+/* Estilo principal */
 main {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 2rem 1rem;
-  position: relative; /* Para o conteúdo estar acima de possíveis futuras camadas */
-  z-index: 1;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 1s ease-out;
 }
 
 #cardSection {
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-/* =============== */
-/* GLASSMORPHISM   */
-/* =============== */
-.glass {
-  background: var(--glass-bg);
-  color: var(--glass-text-color);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  box-shadow: var(--box-shadow);
-  border: 1px solid var(--glass-border);
-}
-
-/* ================= */
-/* CARD DE MOTIVAÇÃO */
-/* ================= */
 .motivation-card {
+  background: #ffffff; /* Fundo branco limpo */
+  border-radius: 15px;
   padding: 2rem;
-  margin-bottom: 1rem;
-  transition: background-color 0.6s ease, color 0.6s ease, box-shadow 0.6s ease;
-  
-  /* Animação de aparição (fade/slide) */
-  animation: fadeInCard 1s ease forwards;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Leve elevação */
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.motivation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .motivation-card h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-  word-wrap: break-word;
-  opacity: 0; /* começa invisível */
-  animation: fadeInText 1s ease forwards 0.3s; /* anima após 0.3s */
+  color: #2a2d34; /* Título com contraste */
+  font-weight: 600;
 }
 
 .motivation-card p {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  color: #4a4e57; /* Texto suave */
   line-height: 1.6;
-  opacity: 0; /* começa invisível */
-  animation: fadeInText 1s ease forwards 0.5s; /* anima após 0.5s */
 }
 
-/* GRUPO DE BOTÕES */
+/* Botões */
 .button-group {
   display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 
-/* BOTÕES GERAIS */
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease;
-}
-
-/* BOTÃO PRINCIPAL */
 .primary-btn {
-  background-color: var(--button-bg);
-  color: var(--button-text);
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(135deg, #7298a5, #4b6478); /* Azul profissional */
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .primary-btn:hover {
-  opacity: 0.9;
+  background: linear-gradient(135deg, #4b6478, #7298a5);
+  transform: translateY(-3px);
 }
 
-/* Modo escuro - destaque para o botão principal */
-body.dark-mode .primary-btn {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  box-shadow: 0 0 8px rgba(88,166,255,0.3);
-}
-body.dark-mode .primary-btn:hover {
-  box-shadow: 0 0 12px rgba(88,166,255,0.5);
-  opacity: 1;
-}
-
-/* ======= */
-/* FOOTER  */
-/* ======= */
+/* Rodapé */
 footer {
+  width: 100%;
   text-align: center;
   padding: 1rem;
-  background: var(--header-footer-bg);
-  color: var(--header-footer-text);
-  transition: background 0.6s ease;
-  margin-top: auto;
-}
-
-footer p {
+  background: #4b6478; /* Fundo suave */
+  color: #e8eff3;
   font-size: 0.9rem;
+  animation: fadeIn 1.5s ease-out;
 }
 
-/* ======= */
-/* KEYFRAME EFFECT */
-/* ======= */
-@keyframes fadeInCard {
-  0% {
-    opacity: 0;
-    transform: translateY(15px);
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .motivation-card {
+    padding: 1.5rem;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+
+  .primary-btn {
+    font-size: 0.9rem;
   }
 }
 
-@keyframes fadeInText {
-  0% {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ============== */
-/* RESPONSIVIDADE */
-/* ============== */
-
-/* Responsividade para telas abaixo de 1024px */
-@media (max-width: 1024px) {
-  header nav {
-    padding: 0.5rem 1rem;
-  }
-
-  .logo-img {
-    width: 40px;
-    height: 40px;
-  }
-
+@media (max-width: 480px) {
   .app-title {
     font-size: 1.3rem;
   }
 
-  #cardSection {
-    max-width: 700px;
-    padding: 0 1rem;
+  .tagline {
+    font-size: 0.8rem;
   }
 
   .motivation-card h2 {
@@ -305,102 +205,10 @@ footer p {
   }
 
   .motivation-card p {
-    font-size: 1rem;
-  }
-}
-
-/* Responsividade para telas abaixo de 768px */
-@media (max-width: 768px) {
-  /* Header/Nav em coluna e centralizado */
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+    font-size: 0.9rem;
   }
 
-  /* Logo */
-  .logo {
-    justify-content: center; 
-  }
-
-  .logo-img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .app-title {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-  }
-
-  /* Slogan/Tagline */
-  .tagline {
-    font-size: 1rem;
-    margin-left: 0; /* Remove margem à esquerda */
-  }
-
-  main {
-    padding: 2rem 1rem;
-  }
-
-  #cardSection {
-    max-width: 100%;
-  }
-
-  .motivation-card h2 {
-    font-size: 1.4rem;
-  }
-
-  .motivation-card p {
-    font-size: 0.95rem;
-  }
-
-  .button-group {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-}
-
-/* Responsividade para telas abaixo de 480px */
-@media (max-width: 480px) {
-  nav {
-    padding: 0.5rem;
-  }
-
-  .logo-img {
-    width: 28px;
-    height: 28px;
-  }
-
-  .app-title {
-    font-size: 1rem;
-  }
-
-  .tagline {
-    font-size: 0.95rem;
-    margin-top: 0.25rem;
-  }
-
-  .motivation-card {
-    padding: 1.5rem;
-  }
-
-  .motivation-card h2 {
-    font-size: 1.2rem;
-  }
-
-  .motivation-card p {
-    font-size: 0.85rem;
-  }
-
-  .button-group {
-    flex-direction: column;
-    gap: 0.75rem;
+  .primary-btn {
+    padding: 0.7rem 1.2rem;
   }
 }
