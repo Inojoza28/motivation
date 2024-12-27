@@ -1,4 +1,4 @@
-/* Reset padrão */
+/* ===== Reset Básico ===== */
 * {
   margin: 0;
   padding: 0;
@@ -6,22 +6,135 @@
 }
 
 body {
-  font-family: 'Nunito', sans-serif; /* Fonte suave e profissional */
-  background: linear-gradient(120deg, #f1f5f9, #d8e3e7); /* Fundo neutro e inspirador */
-  color: #2a2d34;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #f2f8fc, #e9f5f9);
+  color: #2d3748;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  padding: 1rem;
+  overflow: hidden;
+  transition: background 0.3s ease-in-out;
+}
+
+/* ===== Container Geral ===== */
+.container {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* ===== Cabeçalho ===== */
+header nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  overflow-x: hidden;
+  gap: 0.8rem;
 }
 
-/* Animação de entrada suave */
+.logo-img {
+  max-width: 80px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content .app-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0077b6;
+  letter-spacing: 0.8px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-content .tagline {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin-top: -5px;
+}
+
+/* ===== Card de Motivação ===== */
+.motivation-card {
+  padding: 1.8rem;
+  background: #e9f5f9;
+  border-radius: 18px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.motivation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.motivation-card h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #005f73;
+}
+
+.motivation-card p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* ===== Botões ===== */
+.button-group {
+  display: flex;
+  justify-content: center;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #0077b6, #0096c7);
+  margin-top: 20px;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.3);
+}
+
+.primary-btn:hover {
+  background: linear-gradient(135deg, #005f73, #0077b6);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 119, 182, 0.4);
+}
+
+.primary-btn:active {
+  transform: translateY(1px);
+}
+
+/* ===== Rodapé ===== */
+footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #a0aec0;
+  text-align: center;
+}
+
+/* ===== Animações ===== */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -29,186 +142,101 @@ body {
   }
 }
 
-/* Cabeçalho */
-header {
-  width: 100%;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #4b6478, #7298a5); /* Tons azulados suaves */
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  animation: fadeIn 0.8s ease-out;
-}
+/* ===== Responsividade ===== */
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo-img {
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.header-content {
-  text-align: center;
-}
-
-.app-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  color: #f1f5f9; /* Texto claro */
-}
-
-.tagline {
-  font-size: 1rem;
-  margin-top: 0.3rem;
-  opacity: 0.9;
-  font-style: italic;
-  color: #e8eff3; /* Subtle secondary color */
-}
-
-/* Estilo principal */
-main {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  animation: fadeIn 1s ease-out;
-}
-
-#cardSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.motivation-card {
-  background: #ffffff; /* Fundo branco limpo */
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Leve elevação */
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.motivation-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.motivation-card h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #2a2d34; /* Título com contraste */
-  font-weight: 600;
-}
-
-.motivation-card p {
-  font-size: 1rem;
-  color: #4a4e57; /* Texto suave */
-  line-height: 1.6;
-}
-
-/* Botões */
-.button-group {
-  display: flex;
-  gap: 1rem;
-}
-
-.primary-btn {
-  padding: 0.8rem 1.8rem;
-  background: linear-gradient(135deg, #7298a5, #4b6478); /* Azul profissional */
-  color: #ffffff;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.primary-btn:hover {
-  background: linear-gradient(135deg, #4b6478, #7298a5);
-  transform: translateY(-3px);
-}
-
-/* Rodapé */
-footer {
-  width: 100%;
-  text-align: center;
-  padding: 1rem;
-  background: #4b6478; /* Fundo suave */
-  color: #e8eff3;
-  font-size: 0.9rem;
-  animation: fadeIn 1.5s ease-out;
-}
-
-/* Responsividade */
+/* Tablets (768px ou menores) */
 @media (max-width: 768px) {
-  header {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
   }
 
-  nav {
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
 
   .motivation-card {
-    padding: 1.5rem;
-  }
-
-  .app-title {
-    font-size: 1.5rem;
-  }
-
-  .tagline {
-    font-size: 0.9rem;
-  }
-
-  .primary-btn {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .app-title {
-    font-size: 1.3rem;
-  }
-
-  .tagline {
-    font-size: 0.8rem;
+    padding: 1.4rem;
+    border-radius: 12px;
   }
 
   .motivation-card h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+  }
+
+  .motivation-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .primary-btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* Smartphones (480px ou menores) */
+@media (max-width: 480px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1rem;
+    background: linear-gradient(180deg, #f2f8fc, #e9f5f9); /* Para manter harmonia visual */
+  }
+
+  .container {
+    width: 100%;
+    max-width: 360px;
+    padding: 1.2rem;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: none; /* Remove sombras para telas menores */
+  }
+
+  .header-content .app-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .header-content .tagline {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .motivation-card {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombras leves */
+  }
+
+  .motivation-card h2 {
+    font-size: 1.2rem;
+    line-height: 1.4;
   }
 
   .motivation-card p {
     font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   .primary-btn {
-    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+
+  footer {
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    color: #6b7280;
+    text-align: center;
   }
 }
