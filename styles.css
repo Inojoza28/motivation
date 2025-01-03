@@ -242,12 +242,13 @@ footer {
   }
 
   .header-content .tagline {
-    font-size: 0.95rem;
+    font-size: 0.90rem;
   }
 
   .motivation-card {
     padding: 1.5rem;
     border-radius: 12px;
+    width: 90%;
   }
 
   .primary-btn {
