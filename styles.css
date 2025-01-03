@@ -1,242 +1,262 @@
-/* ===== Reset Básico ===== */
+/* 
+  Estilos Profissionais - Clarity & Softness com Gradiente
+  Fonte recomendada: "Inter", já importada no HTML
+*/
+
+/* ===================== */
+/* VARIÁVEIS DE CORES E FONTE */
+/* ===================== */
+:root {
+  --font-base: 'Inter', sans-serif;
+
+  /* Cores */
+  --color-gradient: linear-gradient(135deg, #0077b6, #0096c7); /* Gradiente principal */
+  --color-primary: #0077b6; /* Cor inicial do gradiente */
+  --color-secondary: #0096c7; /* Cor final do gradiente */
+  --color-background: #e9f5f9; /* Off-white suave */
+  --color-card-bg: #FFFFFF;    /* Fundo de componentes */
+  --color-border: #E5E7EB;     /* Cinza muito claro */
+  --color-text-main: #1F2937;  /* Cinza escuro */
+  --color-text-secondary: #6B7280; /* Cinza médio */
+
+  /* Para efeito glass (se desejar usar) */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+}
+
+/* ===================== */
+/* RESETS BÁSICOS */
+/* ===================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===================== */
+/* ESTILO GERAL DO BODY */
+/* ===================== */
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #f2f8fc, #e9f5f9);
-  color: #2d3748;
-  line-height: 1.6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 1rem;
-  overflow: hidden;
-  transition: background 0.3s ease-in-out;
+  font-family: var(--font-base);
+  background: var(--color-background);
+  color: var(--color-text-main);
+  line-height: 1.7; /* Levemente maior para melhor legibilidade */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ===== Container Geral ===== */
+/* ===================== */
+/* CONTAINER PRINCIPAL */
+/* ===================== */
 .container {
-  width: 100%;
-  max-width: 460px;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem; /* Aumentando o padding superior/inferior para mais “respiro” */
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  animation: fadeIn 0.8s ease-in-out;
+  gap: 2rem; /* Espaçamento vertical entre seções */
 }
 
-/* ===== Cabeçalho ===== */
-header nav {
+/* ===================== */
+/* CABEÇALHO (HEADER) */
+/* ===================== */
+header {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Espaçamento entre elementos do header */
+  background: var(--color-gradient); /* Aplicando o gradiente no header */
+  padding: 1.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
+  text-align: center;
 }
 
+/* Logo */
 .logo-img {
-  max-width: 80px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80px;  
+  height: auto;
+  transition: transform 0.2s ease;
 }
 
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* Título e tagline */
 .header-content .app-title {
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: #0077b6;
-  letter-spacing: 0.8px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff; /* Texto branco para contraste no gradiente */
+  letter-spacing: 0.5px; /* Leve espaçamento para título */
 }
 
 .header-content .tagline {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #6b7280;
-  margin-top: -5px;
+  font-size: 1.05rem;
+  color: #e0e7ff; /* Tom claro para contraste */
 }
 
-/* ===== Card de Motivação ===== */
+/* ===================== */
+/* MAIN (CONTEÚDO PRINCIPAL) */
+/* ===================== */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem; /* Espaço entre sessões dentro do main, se houver */
+}
+
+#cardSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===================== */
+/* CARD DE MOTIVAÇÃO */
+/* ===================== */
 .motivation-card {
-  padding: 1.8rem;
-  background: #e9f5f9;
-  border-radius: 18px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: var(--color-card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 0 auto;
 }
 
 .motivation-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
 }
 
+/* Efeito glass (opcional) */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none; /* Se preferir manter a sombra, remova este */
+}
+
+/* Títulos e textos do card */
 .motivation-card h2 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
   color: #005f73;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .motivation-card p {
   font-size: 1rem;
-  font-weight: 400;
-  color: #4a5568;
+  color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
-/* ===== Botões ===== */
+/* ===================== */
+/* BOTÕES */
+/* ===================== */
 .button-group {
   display: flex;
+  gap: 1rem;
   justify-content: center;
+  margin-top: 1.5rem;
 }
 
-.primary-btn {
-  background: linear-gradient(135deg, #0077b6, #0096c7);
-  margin-top: 20px;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 12px;
+/* Estilo básico do botão */
+button {
   cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.3);
+  font-weight: 500;
+}
+
+/* Botão primário com gradiente */
+.primary-btn {
+  background: var(--color-gradient);
+  color: #ffffff;
+  background-size: 200% 200%;
 }
 
 .primary-btn:hover {
-  background: linear-gradient(135deg, #005f73, #0077b6);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 119, 182, 0.4);
+  background-position: right center; /* Efeito de deslocamento do gradiente */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 119, 182, 0.2);
 }
 
-.primary-btn:active {
-  transform: translateY(1px);
+/* Botão secundário */
+.secondary-btn {
+  background-color: var(--color-secondary);
+  color: #065f46;
 }
 
-/* ===== Rodapé ===== */
+.secondary-btn:hover {
+  background-color: #34d399;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(110, 231, 183, 0.2);
+}
+
+/* ===================== */
+/* RODAPÉ */
+/* ===================== */
 footer {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #a0aec0;
   text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto; /* Mantém o footer fixo no fim da página caso pouco conteúdo */
 }
 
-/* ===== Animações ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== Responsividade ===== */
-
-/* Tablets (768px ou menores) */
-@media (max-width: 768px) {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 400px;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  .motivation-card {
-    padding: 1.4rem;
-    border-radius: 12px;
-  }
-
-  .motivation-card h2 {
-    font-size: 1.4rem;
-  }
-
-  .motivation-card p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .primary-btn {
-    font-size: 0.95rem;
-    padding: 0.7rem 1.2rem;
-  }
-}
-
-/* Smartphones (480px ou menores) */
+/* ===================== */
+/* MEDIA QUERIES */
+/* ===================== */
 @media (max-width: 480px) {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 1rem;
-    background: linear-gradient(180deg, #f2f8fc, #e9f5f9); /* Para manter harmonia visual */
+  /* Ajustes para telas muito pequenas */
+  .container {
+    padding: 1rem 0.5rem;
+    gap: 1.5rem;
   }
 
-  .container {
-    width: 100%;
-    max-width: 360px;
-    padding: 1.2rem;
-    margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: none; /* Remove sombras para telas menores */
+  .logo-img {
+    width: 60px;
   }
 
   .header-content .app-title {
     font-size: 1.5rem;
-    text-align: center;
+    letter-spacing: 0.4px;
   }
 
   .header-content .tagline {
-    font-size: 0.9rem;
-    text-align: center;
+    font-size: 0.95rem;
   }
 
   .motivation-card {
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombras leves */
-  }
-
-  .motivation-card h2 {
-    font-size: 1.2rem;
-    line-height: 1.4;
-  }
-
-  .motivation-card p {
-    font-size: 0.9rem;
-    line-height: 1.4;
+    padding: 1.5rem;
+    border-radius: 12px;
   }
 
   .primary-btn {
-    font-size: 0.85rem;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
   }
 
-  footer {
-    margin-top: 0.8rem;
-    font-size: 0.8rem;
-    color: #6b7280;
-    text-align: center;
+  .secondary-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
   }
 }
